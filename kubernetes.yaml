@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: golangapi
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: golangapi
+  template:
+    metadata:
+      labels:
+        app: golangapi
+    spec:
+      containers:
+      - name: minikube
+        image: zeynephelnkrdg/golangwebapi:latest
+        ports:
+        - containerPort: 8080
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: golangapi
+spec:
+  selector:
+    app: golangapi
+  ports:
+  - protocol: TCP
+    port: 8080

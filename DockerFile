@@ -1,0 +1,11 @@
+FROM golang:latest
+
+RUN mkdir -p /Users/macbookair/Desktop/APITutorial
+WORKDIR /Users/macbookair/Desktop/APITutorial
+COPY . /Users/macbookair/Desktop/APITutorial
+RUN go build -o . /Users/macbookair/Desktop/APITutorial
+CMD /Users/macbookair/Desktop/APITutorial
+
+EXPOSE 8080
+
+
